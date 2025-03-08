@@ -1,17 +1,21 @@
-# A-Ultra Website
+# A-Ultra YouTube Channel Website - Preview
 
-Dies ist die offizielle Website von A-Ultra. Die Website enthält Informationen über das Projekt, Podcasts und mehr.
+## 🚧 Work in Progress 🚧
 
-## Struktur
+This repository contains the preliminary design and development files for the A-Ultra YouTube channel's official website. Currently in the early stages of development, this project aims to provide a unique online presence for the channel.
 
-- `index.html` - Hauptseite
-- `about.html` - Über uns
-- `podcasts.html` - Podcast-Übersicht
-- `contact.html` - Kontaktseite
-- `accessibility.html` - Barrierefreiheit
-- `danke.html` - Dankesseite
-- `hacking-escape-room.html` - Informationen zum Hacking Escape Room
+### Current Features (Preview)
+- Initial website layout and structure
+- Placeholder content and design mockups
+- Basic navigation and page templates
 
-## Entwicklung
+### Upcoming Developments
+- Full website design
+- Integration of YouTube channel content
+- Responsive design for multiple devices
 
-Die Website wurde mit HTML, CSS und JavaScript entwickelt. 
+### Status
+🔨 Under active development
+🌱 Early preview version
+
+*Stay tuned for more updates!*
