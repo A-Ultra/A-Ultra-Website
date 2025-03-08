@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Ihre Website</title>
+    <style>
+        /* Gemeinsame Styles für Desktop und mobile Versionen */
+        .navbar {
+            background-color: black; /* Hintergrundfarbe der Navbar auf Schwarz setzen */
+        }
+
+        .navbar-brand img {
+            width: 4rem; /* Größe des Logos weiter verkleinern */
+            height: auto;
+        }
+
+        /* Styles für die mobile Version */
+        @media screen and (max-width: 768px) {
+            .navbar-nav {
+                margin-top: 2rem; /* Abstand zwischen Logo und Menü erhöhen */
+            }
+
+            .navbar-nav a {
+                font-size: 2.8rem; /* Textgröße erhöhen */
+                color: white; /* Textfarbe ändern */
+            }
+
+            .navbar-toggler {
+                color: white; /* Farbe des Hamburger-Menü-Icons in der mobilen Ansicht ändern */
+            }
+
+            .social-media-desktop {
+                display: none; /* Verstecke Desktop Social-Media-Icons in der mobilen Ansicht */
+            }
+
+            /* Größe der Social Media Icons in der mobilen Ansicht anpassen */
+            .social-media-mobile img {
+                width: 3rem;
+                height: auto;
+                margin: 0.5rem; /* Abstand zwischen den Icons anpassen */
+            }
+        }
+
+        /* Desktop-Stile */
+        @media screen and (min-width: 769px) {
+            .social-media-desktop img {
+                width: 3rem; /* Größe der Social Media Icons in der Desktop-Version anpassen */
+                height: auto;
+                margin-left: 1rem; /* Abstand zwischen den Icons erhöhen */
+            }
+
+            .social-media-mobile {
+                display: none; /* Verstecke Mobile Social-Media-Icons in der Desktop-Ansicht */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
+            <a class="navbar-brand" href="#"><img src="assets/images/A-Ultra_weiss.png" alt="Logo"></a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Startseite</a>
+                    </li>
+                    <div class="nav-item">
+                        <a class="nav-link" href="hacking-escape-room.html">Hacking Escape Room</a>
+                    </div>
+                    <div class="nav-item">
+                        <a class="nav-link" href="accessibility.html">Accessibility</a>
+                    </div>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">Über A-Ultra</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Kontakt</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="social-media-desktop">
+                <a href="https://www.youtube.com/@aultra_de"><img src="assets/images/socials/yt 1.png" alt="YouTube"></a>
+                <a href="https://www.tiktok.com/@aultra_de"><img src="assets/images/socials/Tiktock 1.png" alt="TikTok"></a>
+                <a href="https://www.instagram.com/aultra_de/"><img src="assets/images/socials/insta 1.png" alt="Instagram"></a>
+                <a href="https://x.com/aultra_de"><img src="assets/images/socials/twitter 1.png" alt="Twitter"></a>
+                <a href="podcasts.html"><img src="assets/images/socials/pod 1.png" alt="Podcast"></a>
+            </div>
+            <div class="social-media-mobile">
+                <a href="https://www.youtube.com/@aultra_de"><img src="assets/images/socials/yt 1.png" alt="YouTube"></a>
+                <a href="https://www.tiktok.com/@aultra_de"><img src="assets/images/socials/Tiktock 1.png" alt="TikTok"></a>
+                <a href="https://www.instagram.com/aultra_de/"><img src="assets/images/socials/insta 1.png" alt="Instagram"></a>
+                <a href="https://x.com/aultra_de"><img src="assets/images/socials/twitter 1.png" alt="Twitter"></a>
+                <a href="podcasts.html"><img src="assets/images/socials/pod 1.png" alt="Podcast"></a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Hier kommt der Rest Ihrer Webseite hin -->
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+</body>
+</html>

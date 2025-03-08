@@ -1,0 +1,628 @@
+body {
+    background-color: black !important;
+    min-height: 100vh; /* Volle Viewport-Höhe */
+    margin: 0; /* Entfernt Standard-Margins */
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+.videoWrapper {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    width: 100%;
+    background-color: black;
+    border-radius: 8px;
+    overflow: hidden; /* Verhindert, dass der iframe über die abgerundeten Ecken hinausragt */
+}
+
+.videoWrapper iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none; /* Entfernt den iframe-Rahmen */
+}
+
+/* Stil für den Button */
+.custom-button {
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 15px;
+  border: 2px solid #ffffff; /* Weißer Rahmen */
+  background-color: #000000; /* Schwarzer Hintergrund */
+  color: #ffffff; /* Textfarbe des Buttons */
+  text-decoration: none; /* Entfernt die standardmäßige Textunterstreichung */
+  position: relative;
+  overflow: hidden;
+  transition: background-color 0.5s, color 0.5s; /* Überblenden-Effekt für Hintergrundfarbe und Textfarbe */
+}
+
+/* Stil für das Bild/Icon */
+.custom-button img {
+  width: 20px; /* Breite des Bildes/Icons anpassen */
+  margin-right: 10px; /* Abstand zwischen Bild/Icon und Text */
+  vertical-align: middle;
+}
+
+/* CSS-Animation für den Button */
+.custom-button::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3); /* Helle Überlagerung */
+  transition: left 0.5s ease;
+}
+
+.custom-button:hover::before {
+  left: 100%;
+}
+
+/* Änderungen bei Hover */
+.custom-button:hover {
+  background-color: #ffffff; /* Hellere Hintergrundfarbe */
+  color: #000000; /* Schwarzer Text */
+}
+
+/* Navbar Styles */
+.navbar {
+    background-color: black;
+}
+
+.navbar-brand img {
+    width: 4rem;
+    height: auto;
+}
+
+/* Styles für die mobile Version */
+@media screen and (max-width: 768px) {
+    .navbar-nav {
+        margin-top: 2rem;
+    }
+
+    .navbar-nav a {
+        font-size: 2.8rem;
+        color: white;
+    }
+
+    .navbar-toggler {
+        color: white;
+    }
+
+    .social-media-desktop {
+        display: none;
+    }
+
+    .social-media-mobile img {
+        width: 3rem;
+        height: auto;
+        margin: 0.5rem;
+    }
+}
+
+/* Desktop-Stile */
+@media screen and (min-width: 769px) {
+    .social-media-desktop img {
+        width: 3rem;
+        height: auto;
+        margin-left: 1rem;
+    }
+
+    .social-media-mobile {
+        display: none;
+    }
+}
+
+/* Stil für den Button-Container */
+.row:last-child {
+    margin-top: 2rem;  /* Abstand über dem Button */
+    margin-bottom: 1rem;  /* Abstand unter dem Button von 3rem auf 1rem reduziert */
+}
+
+/* Footer Styles */
+footer {
+    background-color: black !important;
+    color: white !important;
+    padding: 10px 0;
+    text-align: center;
+    width: 100%;
+    margin-top: 0.5rem; /* Von 1rem auf 0.5rem reduziert */
+    margin-bottom: 0;
+    position: relative;
+    bottom: 0;
+}
+
+footer p {
+    margin: 0;
+    padding: 3px 0;
+}
+
+.container {
+    margin-bottom: 2rem;
+    padding: 0 15px;
+}
+
+/* Podcast Styles */
+h1 {
+    font-size: 60px;
+    margin: 0;
+    color: #ffffff !important; /* Weiß mit !important */
+    text-align: center;
+}
+
+h2 {
+    font-size: 40px;
+    margin: 0;
+    padding-block: 30px;
+    color: #ffffff !important; /* Weiß mit !important */
+    text-align: center;
+}
+
+/* Neuer Style für Paragraphen auf der Podcast-Seite */
+.container p {
+    color: #ffffff !important; /* Weiß mit !important */
+    font-size: 1rem;
+    line-height: 1.5;
+    margin-bottom: 1rem;
+}
+
+iframe {
+    margin: auto;
+    padding-block: 30px;
+}
+
+/* About Page Styles */
+.about-section {
+    padding: 3rem 0;
+    color: white;
+}
+
+.about-title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: white !important;
+}
+
+.about-content {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+}
+
+.about-content p {
+    color: white !important;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.about-content strong {
+    color: #ffffff;
+    font-weight: 600;
+}
+
+.features-list {
+    margin: 2rem 0;
+}
+
+.features-list ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+.features-list li {
+    color: white;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+    position: relative;
+}
+
+.features-list li::before {
+    content: "→";
+    position: absolute;
+    left: 0;
+    color: white;
+}
+
+.features-list li strong {
+    color: white;
+    display: inline-block;
+    margin-right: 0.5rem;
+}
+
+/* Contact Page Styles */
+.contact-section {
+    padding: 3rem 0;
+    color: white;
+}
+
+.contact-title {
+    font-size: 3rem;
+    margin-bottom: 2rem;
+    text-align: center;
+    color: white !important;
+}
+
+.contact-content {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 2rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+}
+
+.contact-content p {
+    color: white !important;
+    font-size: 1.1rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.contact-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.contact-form label {
+    color: white;
+    margin-bottom: 0.5rem;
+    display: block;
+}
+
+.contact-form .form-control {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+    padding: 0.8rem;
+    border-radius: 8px;
+}
+
+.contact-form .form-control:focus {
+    background-color: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.5);
+    color: white;
+    box-shadow: none;
+}
+
+.contact-form select.form-control {
+    cursor: pointer;
+}
+
+.contact-form .consent-group {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+}
+
+.contact-form .consent-group input[type="checkbox"] {
+    margin-top: 0.3rem;
+}
+
+.contact-form .consent-group label {
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* Anpassung der Placeholder-Farbe */
+.contact-form .form-control::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+}
+
+/* Anpassung der Select-Optionen */
+.contact-form select option {
+    background-color: black;
+    color: white;
+}
+
+/* Thanks Page Styles */
+.thanks-section {
+    padding: 5rem 0;
+    color: white;
+}
+
+.thanks-content {
+    background-color: rgba(255, 255, 255, 0.1);
+    padding: 3rem;
+    border-radius: 15px;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.thanks-title {
+    font-size: 3.5rem;
+    margin-bottom: 2rem;
+    color: white !important;
+}
+
+.thanks-content p {
+    color: white !important;
+    font-size: 1.2rem;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+}
+
+.thanks-content .custom-button {
+    margin-top: 2rem;
+    display: inline-block;
+}
+
+/* Home Page Styles */
+.home-section {
+    padding: 2rem 0;
+}
+
+.home-title {
+    font-size: 3rem;
+    margin-bottom: 1rem; /* Von 2rem auf 1rem reduziert */
+    text-align: center;
+    color: white !important;
+}
+
+.latest-videos-title {
+    font-size: 2rem;
+    margin: 2rem 0;
+    text-align: center;
+    color: white !important;
+}
+
+.featured-video {
+    margin-bottom: 1rem; /* Von 3rem auf 1rem reduziert */
+}
+
+.video-grid {
+    margin: 0 -15px;
+}
+
+.video-grid .col-md-4 {
+    padding: 0 15px;
+    margin-bottom: 1rem; /* Von 30px auf 1rem reduziert */
+}
+
+/* Responsive Anpassungen für die Video-Grid */
+@media (max-width: 768px) {
+    .home-title {
+        font-size: 2.5rem;
+    }
+
+    .latest-videos-title {
+        font-size: 1.8rem;
+    }
+
+    .video-grid .col-md-4 {
+        margin-bottom: 1rem; /* Von 30px auf 1rem reduziert */
+    }
+}
+
+/* Podcast Button Container Styles */
+.podcast-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0 2rem 0;
+    flex-wrap: wrap; /* Erlaubt das Umbrechen auf mobilen Geräten */
+    padding: 1rem 0;
+}
+
+.podcast-buttons .custom-button {
+    white-space: nowrap;
+    min-width: 160px;
+    text-align: center;
+    margin-bottom: 0.5rem; /* Abstand zwischen den Zeilen wenn sie umbrechen */
+}
+
+/* Desktop Styles */
+@media (min-width: 992px) {
+    .podcast-buttons {
+        flex-wrap: nowrap; /* Keine Umbrüche auf Desktop */
+        overflow-x: hidden; /* Kein horizontales Scrollen auf Desktop */
+    }
+}
+
+/* Mobile Styles */
+@media (max-width: 991px) {
+    .podcast-buttons {
+        justify-content: center;
+        gap: 0.5rem; /* Kleinerer Abstand auf mobilen Geräten */
+    }
+    
+    .podcast-buttons .custom-button {
+        min-width: 140px; /* Etwas schmaler auf mobilen Geräten */
+    }
+}
+
+/* Podcast Page Styles */
+.podcast-section {
+    padding: 2rem 0;
+}
+
+.podcast-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: white !important;
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 768px) {
+    .podcast-title {
+        font-size: 2.5rem;
+    }
+}
+
+/* Escape Room Styles */
+.escape-room-section {
+    padding: 2rem 0;
+}
+
+.escape-room-title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    text-align: center;
+    color: white !important;
+}
+
+.iframe-container {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 200px);
+    margin: 1rem 0;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: white;
+}
+
+.iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 768px) {
+    .escape-room-title {
+        font-size: 2.5rem;
+    }
+    
+    .iframe-container {
+        height: calc(100vh - 150px);
+    }
+}
+
+/* Full Screen iFrame Styles */
+.full-iframe-container {
+    position: relative;
+    width: 100%;
+    height: calc(100vh - 136px); /* Höhe = Viewport - (Navbar + Footer) */
+    background-color: black; /* Geändert von white zu black */
+    margin: 0; /* Entfernt mögliche Margins */
+    padding: 0; /* Entfernt mögliche Padding */
+}
+
+.full-iframe-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    margin: 0; /* Entfernt mögliche Margins */
+    padding: 0; /* Entfernt mögliche Padding */
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 768px) {
+    .full-iframe-container {
+        height: calc(100vh - 120px);
+    }
+}
+
+/* Accessibility Styles */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    font-size: 3rem;
+    text-align: center;
+    color: white;
+    margin-bottom: 30px;
+}
+
+.filter-buttons {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.filter-buttons button {
+    margin: 5px;
+    padding: 12px 20px;
+    cursor: pointer;
+    border: 2px solid transparent;
+    border-radius: 15px;
+    background-color: rgba(255, 255, 255, 0.1);
+    color: white;
+    transition: all 0.3s;
+}
+
+.filter-buttons button:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+}
+
+.filter-buttons button.active {
+    background-color: white;
+    color: black;
+}
+
+.card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 10px;
+    padding: 0 20px;
+}
+
+.card {
+    display: flex; /* Flexbox aktivieren */
+    flex-direction: column; /* Vertikale Anordnung */
+    justify-content: space-between; /* Platz zwischen den Inhalten */
+    width: 350px; /* Breite für alle Karten erhöht */
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    border-radius: 15px;
+    padding: 20px;
+    transition: all 0.3s;
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.card h3 {
+    margin: 15px 0;
+    color: white;
+    font-size: 1.5rem;
+    transition: color 0.3s;
+}
+
+.card p {
+    color: white;
+    line-height: 1.5;
+    transition: color 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    background-color: rgba(255, 255, 255, 0.3) !important;
+}
+
+.card:hover h3,
+.card:hover p {
+    color: white;
+}
+
+.card.show {
+    display: block;
+}
+
+/* Responsive Anpassungen */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5rem;
+    }
+    
+    .card-container {
+        grid-template-columns: 1fr;
+    }
+}
