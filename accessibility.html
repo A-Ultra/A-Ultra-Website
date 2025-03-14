@@ -15,19 +15,195 @@
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png">
     <link rel="icon" sizes="32x32" href="assets/images/favicons/favicon-32x32.png" type="image/png">
     <link rel="icon" sizes="16x16" href="assets/images/favicons/favicon-16x16.png" type="image/png">
+    <style>
+        /* Reset und Basis-Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+        }
+        
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+        
+        h1 {
+            text-align: center;
+            margin: 30px 0;
+            font-size: 3rem;
+            font-weight: 600;
+        }
+        
+        /* Filter und Suchfeld */
+        .filter-buttons {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .filter-buttons button {
+            height: 40px;
+            padding: 0 20px;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 20px;
+            border: none;
+            background-color: #222;
+            color: #fff;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .filter-buttons button:hover {
+            background-color: #333;
+        }
+
+        .filter-buttons button.active {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .search-container {
+            display: flex;
+            align-items: center;
+            max-width: 500px;
+            height: 40px;
+            margin: 0 auto 1.5rem;
+        }
+
+        #searchInput {
+            height: 40px;
+            border-radius: 25px;
+            padding-left: 20px;
+            padding-right: 20px;
+            border: none;
+            margin: 0;
+            box-sizing: border-box;
+            background-color: #fff;
+            color: #333;
+            width: 100%;
+            font-size: 1rem;
+        }
+
+        #searchInput::placeholder {
+            color: #777;
+        }
+
+        #searchInput:focus {
+            box-shadow: none;
+            outline: none;
+        }
+
+        .controls-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 0 1rem;
+        }
+
+        /* Karten-Container und Karten */
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+            margin-top: 30px;
+        }
+
+        /* Bootstrap-Überschreibungen */
+        .card {
+            background-color: #111;
+            border-radius: 10px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: none;
+            border: none;
+        }
+
+        .card.show {
+            display: block;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+        }
+
+        .card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .card h3 {
+            padding: 15px 15px 5px;
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .card p {
+            padding: 0 15px 15px;
+            color: #ccc;
+            font-size: 0.9rem;
+        }
+
+        /* Bootstrap-Klassen überschreiben */
+        .form-control:focus {
+            box-shadow: none;
+            border-color: transparent;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .filter-buttons {
+                justify-content: center;
+            }
+            
+            .search-container {
+                width: 100%;
+            }
+            
+            .card-container {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- Header für die Navbar -->
     <header></header>
 
     <div class="container">
-        <h1>Barrierefreiheit</h1>
+        <h1>Accessibility</h1>
         
-        <div class="filter-buttons">
-            <button onclick="filterCards('all')" class="active">Alle</button>
-            <button onclick="filterCards('ios')">iOS</button>
-            <button onclick="filterCards('macos')">macOS</button>
-            <button onclick="filterCards('windows')">Windows</button>
+        <div class="controls-wrapper">
+            <div class="filter-buttons">
+                <button onclick="filterCards('all')" class="active">Alle</button>
+                <button onclick="filterCards('ios')">iOS</button>
+                <button onclick="filterCards('macos')">macOS</button>
+                <button onclick="filterCards('windows')">Windows</button>
+            </div>
+            
+            <div class="search-container">
+                <input type="text" id="searchInput" class="form-control" placeholder="Suchen...">
+            </div>
         </div>
         
         <div class="card-container">
@@ -63,27 +239,48 @@
     <footer></footer>
 
     <script>
+    let currentCategory = 'all';
+
+    // Suchfunktion
+    document.getElementById('searchInput').addEventListener('input', function(e) {
+        filterContent(e.target.value, currentCategory);
+    });
+
+    function filterContent(searchText, category) {
+        const cards = document.querySelectorAll('.card');
+        const searchLower = searchText.toLowerCase();
+
+        cards.forEach(card => {
+            const title = card.querySelector('h3').textContent.toLowerCase();
+            const description = card.querySelector('p').textContent.toLowerCase();
+            const matchesSearch = title.includes(searchLower) || description.includes(searchLower);
+            const matchesCategory = category === 'all' || card.classList.contains(category);
+
+            if (matchesSearch && matchesCategory) {
+                card.classList.add('show');
+                card.style.display = 'block';
+            } else {
+                card.classList.remove('show');
+                card.style.display = 'none';
+            }
+        });
+    }
+
     function filterCards(category) {
+        currentCategory = category;
+        const searchText = document.getElementById('searchInput').value;
         const buttons = document.querySelectorAll('.filter-buttons button');
+        
         buttons.forEach(button => {
             button.classList.remove('active');
             if (category === 'all' && button.textContent === 'Alle' || 
                 button.textContent.toLowerCase() === category) {
                 button.classList.add('active');
-        }
-    });
+            }
+        });
 
-    const cards = document.querySelectorAll('.card');
-    cards.forEach(card => {
-        if (category === 'all' || card.classList.contains(category)) {
-            card.classList.add('show');
-            card.style.display = 'block'; // Sicherstellen, dass die Karten angezeigt werden
-        } else {
-            card.classList.remove('show');
-            card.style.display = 'none'; // Karten ausblenden
-        }
-    });
-}
+        filterContent(searchText, category);
+    }
     </script>
 </body>
 </html>
