@@ -1,0 +1,28 @@
+{
+    "videos": [
+        {
+            "videoId": "Oc6qNBaHXd8",
+            "title": "VoiceOver auf dem iPhone",
+            "description": "Wie du VoiceOver auf dem iPhone einrichtest und verwendest - Screenreader für blinde Menschen",
+            "category": "ios"
+        },
+        {
+            "videoId": "0HvsFB2-7nk",
+            "title": "AssistiveTouch auf dem iPhone",
+            "description": "Wie du AssistiveTouch auf dem iPhone einrichtest und verwendest - Bedienungshilfe für motorisch eingeschränkte Menschen",
+            "category": "ios"
+        },
+        {
+            "videoId": "YGtUbBotzyo",
+            "title": "VoiceOver auf dem Mac",
+            "description": "Wie du VoiceOver auf dem Mac einrichtest und verwendest - Screenreader für blinde Menschen",
+            "category": "macos"
+        },
+        {
+            "videoId": "dEbl5jvLKGQ",
+            "title": "Windows Narrator",
+            "description": "Wie du den Windows Narrator einrichtest und verwendest - Screenreader für blinde Menschen",
+            "category": "windows"
+        }
+    ]
+} 

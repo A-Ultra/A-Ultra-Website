@@ -1,0 +1,10 @@
+{
+  "name": "update-accessibility-videos",
+  "version": "1.0.0",
+  "description": "Script zum Aktualisieren der Accessibility-Video-Daten",
+  "main": "update-videos.js",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "googleapis": "^118.0.0"
+  }
+} 

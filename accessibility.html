@@ -10,6 +10,7 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
     <script src="includes/navbar.js"></script>
     <script src="includes/footer.js"></script>
+    <script src="assets/js/youtube-playlist.js"></script>
     <!-- Standard-Favicon -->
     <link rel="icon" href="assets/images/favicons/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png">
@@ -85,13 +86,14 @@
             max-width: 500px;
             height: 40px;
             margin: 0 auto 1.5rem;
+            position: relative;
         }
 
         #searchInput {
             height: 40px;
             border-radius: 25px;
             padding-left: 20px;
-            padding-right: 20px;
+            padding-right: 40px;
             border: none;
             margin: 0;
             box-sizing: border-box;
@@ -99,6 +101,28 @@
             color: #333;
             width: 100%;
             font-size: 1rem;
+        }
+
+        .clear-search {
+            position: absolute;
+            right: 12px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: none;
+            border: none;
+            color: #777;
+            cursor: pointer;
+            display: none;
+            font-size: 18px;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+        }
+
+        .clear-search:hover {
+            color: #333;
         }
 
         #searchInput::placeholder {
@@ -124,6 +148,17 @@
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
             margin-top: 30px;
+        }
+
+        .card a {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .card a:hover {
+            text-decoration: none;
+            color: inherit;
         }
 
         /* Bootstrap-Überschreibungen */
@@ -193,45 +228,23 @@
     <div class="container">
         <h1>Accessibility</h1>
         
-        <div class="controls-wrapper">
+        <div class="controls-wrapper" style="margin-top: 2rem;">
             <div class="filter-buttons">
                 <button onclick="filterCards('all')" class="active">Alle</button>
                 <button onclick="filterCards('ios')">iOS</button>
                 <button onclick="filterCards('macos')">macOS</button>
                 <button onclick="filterCards('windows')">Windows</button>
+                <button onclick="filterCards('other')">Sonstige</button>
             </div>
             
             <div class="search-container">
                 <input type="text" id="searchInput" class="form-control" placeholder="Suchen...">
+                <button type="button" class="clear-search" aria-label="Suchfeld leeren">×</button>
             </div>
         </div>
         
         <div class="card-container">
-            <div class="card ios show">
-                <img src="https://img.youtube.com/vi/VIDEO_ID_1/maxresdefault.jpg" alt="VoiceOver iOS">
-                <h3>VoiceOver (iOS)</h3>
-                <p>Ermöglicht blinden und sehbehinderten Nutzern die Bedienung per Sprachausgabe.</p>
-            </div>
-            <div class="card macos show">
-                <img src="https://img.youtube.com/vi/VIDEO_ID_2/maxresdefault.jpg" alt="VoiceOver macOS">
-                <h3>VoiceOver (macOS)</h3>
-                <p>Screenreader für macOS mit umfassenden Navigationsmöglichkeiten.</p>
-            </div>
-            <div class="card windows show">
-                <img src="https://img.youtube.com/vi/VIDEO_ID_3/maxresdefault.jpg" alt="Bildschirmleser Windows">
-                <h3>Bildschirmleser (Windows)</h3>
-                <p>Windows Narrator hilft blinden Nutzern, das System per Sprache zu steuern.</p>
-            </div>
-            <div class="card ios show">
-                <img src="https://img.youtube.com/vi/VIDEO_ID_4/maxresdefault.jpg" alt="AssistiveTouch iOS">
-                <h3>AssistiveTouch (iOS)</h3>
-                <p>Ermöglicht die Bedienung von iOS-Geräten ohne physische Tasten.</p>
-            </div>
-            <div class="card macos show">
-                <img src="https://img.youtube.com/vi/YGtUbBotzyo/maxresdefault.jpg" alt="Zoom macOS">
-                <h3>Zoom (macOS)</h3>
-                <p>Bildschirmvergrößerung für Nutzer mit Sehbeeinträchtigungen.</p>
-            </div>
+            <!-- Karten werden dynamisch durch JavaScript eingefügt -->
         </div>
     </div>
 
@@ -241,11 +254,22 @@
     <script>
     let currentCategory = 'all';
 
-    // Suchfunktion
-    document.getElementById('searchInput').addEventListener('input', function(e) {
+    // Clear-Button Funktionalität
+    const searchInput = document.getElementById('searchInput');
+    const clearButton = document.querySelector('.clear-search');
+
+    searchInput.addEventListener('input', function(e) {
         filterContent(e.target.value, currentCategory);
+        clearButton.style.display = e.target.value ? 'block' : 'none';
     });
 
+    clearButton.addEventListener('click', function() {
+        searchInput.value = '';
+        clearButton.style.display = 'none';
+        filterContent('', currentCategory);
+    });
+
+    // Suchfunktion
     function filterContent(searchText, category) {
         const cards = document.querySelectorAll('.card');
         const searchLower = searchText.toLowerCase();
