@@ -1,7 +1,7 @@
 // Funktion zum Laden der Video-Daten
 async function loadVideoData() {
     try {
-        const response = await fetch('/assets/data/accessibility-videos.json');
+        const response = await fetch('/A-Ultra-Website/assets/data/accessibility-videos.json');
         const data = await response.json();
         return data.videos;
     } catch (error) {
