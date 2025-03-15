@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    fetch('includes/footer.html')
+    fetch('/includes/footer.html')
         .then(response => {
             if (!response.ok) {
                 throw new Error('Network response was not ok');

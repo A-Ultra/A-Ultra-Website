@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta-Tags -->
+    <title>Textgröße individuell anpassen: Der komplette Guide – A-Ultra</title>
+    <meta name="description" content="Erfahren Sie, wie Sie die Textgröße in einzelnen Apps auf Ihrem iOS-Gerät individuell anpassen können. Schritt-für-Schritt Anleitung für optimale Lesbarkeit.">
+    <meta name="keywords" content="Textgröße, iOS, iPhone, iPad, Bedienungshilfen, Barrierefreiheit, Accessibility, Control Center, Einstellungen">
+    <meta name="author" content="A-Ultra">
+    
+    <!-- Open Graph Meta-Tags für soziale Medien -->
+    <meta property="og:title" content="Textgröße individuell anpassen: Der komplette Guide">
+    <meta property="og:description" content="Lernen Sie, wie Sie die Textgröße in einzelnen Apps auf Ihrem iOS-Gerät individuell anpassen können.">
+    <meta property="og:image" content="/assets/images/accessibility/textsize-ios-header.jpg">
+    <meta property="og:url" content="https://a-ultra.ch/accessibility-articles/ios/textgroesse-individuell-anpassen.html">
+    <meta property="og:type" content="article">
+    
+    <!-- Twitter Card Meta-Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Textgröße individuell anpassen: Der komplette Guide">
+    <meta name="twitter:description" content="Lernen Sie, wie Sie die Textgröße in einzelnen Apps individuell anpassen können.">
+    <meta name="twitter:image" content="/assets/images/accessibility/textsize-ios-header.jpg">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/CSS/styles.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/includes/navbar.js"></script>
+    <script src="/includes/footer.js"></script>
+    
+    <!-- Standard-Favicon -->
+    <link rel="icon" href="/assets/images/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png">
+    <link rel="icon" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png" type="image/png">
+    <link rel="icon" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png" type="image/png">
+    
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+        }
+
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem 15px;
+        }
+
+        .article-title {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+
+        .article-meta {
+            text-align: center;
+            color: #888;
+            margin-bottom: 1rem;
+        }
+        
+        /* Responsive Video */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 */
+            padding-top: 25px;
+            height: 0;
+            margin-bottom: 1rem;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+
+        .article-content {
+            background: #000;
+            padding: 0;
+            border-radius: 10px;
+            color: #fff;
+        }
+
+        .article-content h2 {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+
+        .article-content h3 {
+            color: #fff;
+            margin-top: 1.5rem;
+        }
+
+        .article-content p {
+            color: #fff;
+            margin-bottom: 1rem;
+        }
+
+        .article-content ul, 
+        .article-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+            color: #fff;
+        }
+
+        .article-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .tip {
+            background: #111;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 10px;
+            border: 1px solid #333;
+        }
+
+        .tip strong {
+            color: #fff;
+        }
+
+        .tip p {
+            margin-bottom: 0;
+        }
+
+        @media (max-width: 768px) {
+            .article-container {
+                padding: 1rem;
+            }
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            margin-bottom: 1rem;
+            background-color: #222;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+
+        .back-button:hover {
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .back-button::before {
+            content: "←";
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header für die Navbar -->
+    <header></header>
+
+    <div class="article-container">
+        <a href="/accessibility.html" class="back-button">Zurück zur Übersicht</a>
+        
+        <h1 class="article-title">Textgröße individuell anpassen: Der komplette Guide</h1>
+        <div class="article-meta">
+            Letzte Aktualisierung: März 2024
+        </div>
+
+        <!-- Eingebundenes YouTube-Video -->
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/NKCc0Gli3j0?start=8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        
+        <div class="article-content">
+            <h2>Einleitung</h2>
+            <p>In diesem Artikel erfahren Sie, wie Sie die Textgröße in einzelnen Apps auf Ihrem iOS-Gerät individuell anpassen können. So können Sie beispielsweise in der Developer-App eine deutlich größere Schrift wählen, während in den Einstellungen eine kleinere Darstellung bevorzugt wird. Es gibt zwei Methoden, die beide zum gleichen Ziel führen – wir erklären beide Verfahren im Detail.</p>
+
+            <h2>Methode 1: Anpassung über die Bedienungshilfen in den Einstellungen</h2>
+            <h3>Schritt-für-Schritt-Anleitung</h3>
+            <ol>
+                <li><strong>Einstellungen öffnen:</strong> Gehen Sie in die <em>Bedienungshilfen</em> in den Einstellungen.</li>
+                <li><strong>Appspezifische Einstellungen:</strong> Scrollen Sie ganz nach unten und tippen Sie auf <em>Appspezifische Einstellungen</em>.</li>
+                <li><strong>App hinzufügen:</strong> Falls Ihre Liste leer ist, tippen Sie auf <em>App hinzufügen</em> und wählen Sie die gewünschte App (z. B. die Developer-App).</li>
+                <li><strong>Textgröße anpassen:</strong> Klappen Sie den Punkt <em>Textgröße</em> auf und wählen Sie die gewünschte Größe (z. B. "sehr groß" oder "sehr klein"). Öffnen Sie anschließend die App, um die Änderungen zu überprüfen.</li>
+                <li><strong>Anpassung zurücksetzen:</strong> Möchten Sie die individuellen Einstellungen wieder entfernen, wischen Sie in der Liste der angepassten Apps bei der betreffenden App nach links und tippen Sie auf <em>Löschen</em>.</li>
+            </ol>
+            <div class="tip">
+                <strong>Tipp:</strong>
+                <p>Mit dieser Methode wird die Textgröße nur für die ausgewählte App geändert, während andere Apps unverändert bleiben.</p>
+            </div>
+
+            <h2>Methode 2: Anpassung über das Control Center</h2>
+            <h3>Schritt-für-Schritt-Anleitung</h3>
+            <ol>
+                <li><strong>Control Center konfigurieren:</strong> Öffnen Sie die <em>Einstellungen</em> und navigieren Sie zum <em>Control Center</em>. Aktivieren Sie dort das Element <em>Textgröße</em> (erkennbare, oft orangefarbene Schaltfläche).</li>
+                <li><strong>App öffnen und Control Center aufrufen:</strong> Starten Sie die App, deren Textgröße Sie anpassen möchten, und öffnen Sie das Control Center.</li>
+                <li><strong>Textgröße anpassen:</strong> Drücken Sie lange auf das Symbol (häufig als "AA" dargestellt) und wählen Sie zwischen der Anpassung nur für diese App oder global für alle Apps. Stellen Sie die gewünschte Textgröße ein.</li>
+                <li><strong>Änderungen prüfen und zurücksetzen:</strong> Verlassen Sie das Control Center und überprüfen Sie die App. Sollten Sie die Anpassung wieder zurücknehmen wollen, können Sie dies ebenfalls über das Control Center tun.</li>
+            </ol>
+            <div class="tip">
+                <strong>Hinweis:</strong>
+                <p>Die Anpassung über das Control Center ermöglicht eine schnelle Änderung der Textgröße, die sich unmittelbar auf die geöffnete App auswirkt.</p>
+            </div>
+
+            <h2>Fazit</h2>
+            <p>Mit den beiden vorgestellten Methoden können Sie die Textgröße in Ihren iOS-Apps individuell anpassen. Ob über die Bedienungshilfen in den Einstellungen oder direkt über das Control Center – beide Verfahren bieten Ihnen die Flexibilität, die Schriftgröße optimal an Ihre Bedürfnisse anzupassen. Probieren Sie beide Methoden aus und finden Sie heraus, welche am besten zu Ihrem Nutzungsverhalten passt.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer></footer>
+</body>
+</html> 
