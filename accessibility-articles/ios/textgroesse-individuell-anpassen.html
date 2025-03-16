@@ -157,7 +157,102 @@
             margin-right: 8px;
             font-size: 1.2em;
         }
+
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+
+        .share-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background-color: #222;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            font-size: 0.9em;
+        }
+
+        .share-button:hover {
+            text-decoration: none;
+            color: #fff;
+        }
+
+        .share-button.twitter:hover {
+            background-color: #1DA1F2;
+        }
+
+        .share-button.facebook:hover {
+            background-color: #4267B2;
+        }
+
+        .share-button.whatsapp:hover {
+            background-color: #25D366;
+        }
+
+        .share-button.reddit:hover {
+            background-color: #FF4500;
+        }
+
+        .share-button.copy:hover {
+            background-color: #444;
+        }
+
+        .share-button img {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+
+        /* Toast Nachricht für Copy-Feedback */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: none;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            display: block;
+            animation: fadeInOut 2s ease-in-out;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; }
+        }
     </style>
+
+    <!-- Font Awesome für die Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+
+    <!-- JavaScript für Copy-Link Funktionalität -->
+    <script>
+        function copyLink() {
+            const url = 'https://aultra.252425.xyz/accessibility-articles/ios/textgroesse-individuell-anpassen.html';
+            navigator.clipboard.writeText(url).then(() => {
+                const toast = document.getElementById('toast');
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2000);
+            });
+        }
+    </script>
 </head>
 <body>
     <!-- Header für die Navbar -->
@@ -170,6 +265,26 @@
         <div class="article-meta">
             Letzte Aktualisierung: März 2024
         </div>
+
+        <div class="share-buttons">
+            <a href="https://twitter.com/intent/tweet?url=https://aultra.252425.xyz/accessibility-articles/ios/textgroesse-individuell-anpassen.html&text=Textgröße individuell anpassen: Der komplette Guide" target="_blank" class="share-button twitter">
+                <i class="fab fa-twitter"></i> Twitter
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://aultra.252425.xyz/accessibility-articles/ios/textgroesse-individuell-anpassen.html" target="_blank" class="share-button facebook">
+                <i class="fab fa-facebook-f"></i> Facebook
+            </a>
+            <a href="https://wa.me/?text=https://aultra.252425.xyz/accessibility-articles/ios/textgroesse-individuell-anpassen.html Textgröße individuell anpassen: Der komplette Guide" target="_blank" class="share-button whatsapp">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="https://www.reddit.com/submit?url=https://aultra.252425.xyz/accessibility-articles/ios/textgroesse-individuell-anpassen.html&title=Textgröße individuell anpassen: Der komplette Guide" target="_blank" class="share-button reddit">
+                <i class="fab fa-reddit-alien"></i> Reddit
+            </a>
+            <button onclick="copyLink()" class="share-button copy">
+                <i class="fas fa-link"></i> Link kopieren
+            </button>
+        </div>
+
+        <div id="toast">Link wurde kopiert!</div>
 
         <!-- Eingebundenes YouTube-Video -->
         <div class="video-container">

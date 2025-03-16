@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta-Tags -->
+    <title>Apple Watch auf iPhone spiegeln und steuern: Anleitung für iOS 16 & watchOS 9 – A-Ultra</title>
+    <meta name="description" content="Erfahren Sie, wie Sie Ihre Apple Watch auf dem iPhone spiegeln und steuern können. Nutzen Sie die neue Funktion in iOS 16 und watchOS 9 mit unserer detaillierten Anleitung.">
+    <meta name="keywords" content="Apple Watch spiegeln, Apple Watch steuern, iOS 16, watchOS 9, Anleitung, Bedienungshilfen, iPhone, Spiegeln">
+    <meta name="author" content="A-Ultra">
+    
+    <!-- Open Graph Meta-Tags für soziale Medien -->
+    <meta property="og:title" content="Apple Watch auf iPhone spiegeln und steuern: Anleitung für iOS 16 & watchOS 9">
+    <meta property="og:description" content="Erfahren Sie, wie Sie Ihre Apple Watch auf dem iPhone spiegeln und steuern können.">
+    <meta property="og:image" content="/assets/images/accessibility/apple-watch-spiegeln-header.jpg">
+    <meta property="og:url" content="https://a-ultra.ch/accessibility-articles/ios/apple-watch-spiegeln.html">
+    <meta property="og:type" content="article">
+    
+    <!-- Twitter Card Meta-Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Apple Watch auf iPhone spiegeln und steuern: Anleitung für iOS 16 & watchOS 9">
+    <meta name="twitter:description" content="Erfahren Sie, wie Sie Ihre Apple Watch auf dem iPhone spiegeln und steuern können.">
+    <meta name="twitter:image" content="/assets/images/accessibility/apple-watch-spiegeln-header.jpg">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/CSS/styles.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="/includes/navbar.js"></script>
+    <script src="/includes/footer.js"></script>
+    
+    <!-- Standard-Favicon -->
+    <link rel="icon" href="/assets/images/favicons/favicon.ico" type="image/x-icon">
+    <link rel="apple-touch-icon" sizes="180x180" href="/assets/images/favicons/apple-touch-icon.png">
+    <link rel="icon" sizes="32x32" href="/assets/images/favicons/favicon-32x32.png" type="image/png">
+    <link rel="icon" sizes="16x16" href="/assets/images/favicons/favicon-16x16.png" type="image/png">
+    
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+        }
+        .article-container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 1rem 15px;
+        }
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            margin-bottom: 1rem;
+            background-color: #222;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+        }
+        .back-button:hover {
+            background-color: #333;
+            color: #fff;
+            text-decoration: none;
+        }
+        .back-button::before {
+            content: "←";
+            margin-right: 8px;
+            font-size: 1.2em;
+        }
+        .article-title {
+            text-align: center;
+            margin-bottom: 1rem;
+            color: #fff;
+        }
+        .article-meta {
+            text-align: center;
+            color: #888;
+            margin-bottom: 1rem;
+        }
+        /* Video-Container für responsives Einbetten */
+        .video-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Verhältnis */
+            height: 0;
+            overflow: hidden;
+            margin-bottom: 1rem;
+        }
+        .video-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+        }
+        .article-content {
+            background: #000;
+            padding: 0;
+            border-radius: 10px;
+            color: #fff;
+        }
+        .article-content h2 {
+            margin-top: 0.5rem;
+            margin-bottom: 0.5rem;
+            color: #fff;
+        }
+        .article-content p {
+            margin-bottom: 1rem;
+        }
+        .article-content ul, 
+        .article-content ol {
+            margin-bottom: 1.5rem;
+            padding-left: 1.5rem;
+        }
+        .tip {
+            background: #111;
+            padding: 1rem;
+            margin: 1.5rem 0;
+            border-radius: 10px;
+            border: 1px solid #333;
+        }
+        @media (max-width: 768px) {
+            .article-container {
+                padding: 1rem;
+            }
+        }
+        /* Share-Buttons */
+        .share-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+        }
+        .share-button {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 16px;
+            background-color: #222;
+            color: #fff;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background-color 0.3s ease;
+            font-size: 0.9em;
+        }
+        .share-button:hover {
+            text-decoration: none;
+            color: #fff;
+        }
+        .share-button.twitter:hover {
+            background-color: #1DA1F2;
+        }
+        .share-button.facebook:hover {
+            background-color: #4267B2;
+        }
+        .share-button.whatsapp:hover {
+            background-color: #25D366;
+        }
+        .share-button.reddit:hover {
+            background-color: #FF4500;
+        }
+        .share-button.copy:hover {
+            background-color: #444;
+        }
+        .share-button img {
+            width: 20px;
+            height: 20px;
+            margin-right: 8px;
+        }
+        /* Toast Nachricht für Copy-Feedback */
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            display: none;
+            z-index: 1000;
+        }
+        .toast.show {
+            display: block;
+            animation: fadeInOut 2s ease-in-out;
+        }
+        @keyframes fadeInOut {
+            0% { opacity: 0; }
+            20% { opacity: 1; }
+            80% { opacity: 1; }
+            100% { opacity: 0; }
+        }
+    </style>
+    
+    <!-- Font Awesome für die Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- JavaScript für Copy-Link Funktionalität -->
+    <script>
+        function copyLink() {
+            const url = 'https://aultra.252425.xyz/accessibility-articles/ios/apple-watch-spiegeln.html';
+            navigator.clipboard.writeText(url).then(() => {
+                const toast = document.getElementById('toast');
+                toast.classList.add('show');
+                setTimeout(() => {
+                    toast.classList.remove('show');
+                }, 2000);
+            });
+        }
+    </script>
+</head>
+<body>
+    <!-- Header für die Navbar -->
+    <header></header>
+    
+    <div class="article-container">
+        <!-- Zurück-Button -->
+        <a href="/accessibility.html" class="back-button">Zurück zur Übersicht</a>
+        
+        <h1 class="article-title">Apple Watch auf iPhone spiegeln und steuern: Anleitung für iOS 16 & watchOS 9</h1>
+        <div class="article-meta">
+            Letzte Aktualisierung: März 2024
+        </div>
+        
+        <!-- Share-Buttons -->
+        <div class="share-buttons">
+            <a href="https://twitter.com/intent/tweet?url=https://aultra.252425.xyz/accessibility-articles/ios/apple-watch-spiegeln.html&text=Apple Watch auf iPhone spiegeln und steuern: Anleitung für iOS 16 & watchOS 9" target="_blank" class="share-button twitter">
+                <i class="fab fa-twitter"></i> Twitter
+            </a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https://aultra.252425.xyz/accessibility-articles/ios/apple-watch-spiegeln.html" target="_blank" class="share-button facebook">
+                <i class="fab fa-facebook-f"></i> Facebook
+            </a>
+            <a href="https://wa.me/?text=https://aultra.252425.xyz/accessibility-articles/ios/apple-watch-spiegeln.html Apple Watch auf iPhone spiegeln und steuern: Anleitung für iOS 16 & watchOS 9" target="_blank" class="share-button whatsapp">
+                <i class="fab fa-whatsapp"></i> WhatsApp
+            </a>
+            <a href="https://www.reddit.com/submit?url=https://aultra.252425.xyz/accessibility-articles/ios/apple-watch-spiegeln.html&title=Apple Watch auf iPhone spiegeln und steuern: Anleitung für iOS 16 & watchOS 9" target="_blank" class="share-button reddit">
+                <i class="fab fa-reddit-alien"></i> Reddit
+            </a>
+            <button onclick="copyLink()" class="share-button copy">
+                <i class="fas fa-link"></i> Link kopieren
+            </button>
+        </div>
+        
+        <div id="toast">Link wurde kopiert!</div>
+        
+        <!-- Eingebundenes YouTube-Video -->
+        <div class="video-container">
+            <iframe src="https://www.youtube.com/embed/_l27cmmZY0g" title="Apple Watch spiegeln und steuern" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+        
+        <div class="article-content">
+            <h2>Einleitung</h2>
+            <p>In diesem Video zeige ich dir, wie du deine Apple Watch vom iPhone spiegeln und steuern kannst. Eine neue und praktische Funktion in iOS 16 und watchOS 9 ermöglicht es, den Bildschirm deiner Apple Watch auf dem iPhone anzuzeigen – und sogar zu bedienen.</p>
+            
+            <h2>Voraussetzungen</h2>
+            <p>Bevor du startest, solltest du folgende Voraussetzungen beachten:</p>
+            <ul>
+                <li>Dein iPhone läuft mit iOS 16 oder neuer.</li>
+                <li>Deine Apple Watch ist mit watchOS 9 oder neuer ausgestattet.</li>
+                <li>Du benötigst mindestens eine Apple Watch Serie 6 oder neuer.</li>
+                <li>Die Geräte müssen sich in unmittelbarer Nähe zueinander befinden.</li>
+            </ul>
+            
+            <h2>Funktion aktivieren</h2>
+            <ol>
+                <li><strong>Einstellungen öffnen:</strong> Starte die Einstellungen-App auf deinem iPhone.</li>
+                <li><strong>Bedienungshilfen auswählen:</strong> Scrolle nach unten und tippe auf den Punkt <em>Bedienungshilfen</em>.</li>
+                <li><strong>Apple Watch Synchronisierung:</strong> Scrolle weiter runter zu <em>physisch und motorisch</em> und aktiviere den Punkt <em>Apple Watch Synchronisierung</em>.</li>
+                <li>Sobald diese Funktion aktiviert ist, wird der Bildschirm deiner Apple Watch auf dem iPhone angezeigt – in einer vergrößerten Darstellung.</li>
+            </ol>
+            
+            <h2>Schneller Zugriff per Kurzbefehle</h2>
+            <p>Um nicht jedes Mal in die Einstellungen gehen zu müssen, kannst du über die Bedienungshilfen einen Kurzbefehl einrichten:</p>
+            <ol>
+                <li>Gehe erneut in die Einstellungen und navigiere einen Schritt zurück zu <em>Bedienungshilfen</em>.</li>
+                <li>Scrolle bis ganz nach unten und tippe auf <em>Befehle</em>.</li>
+                <li>Wähle den Kurzbefehl für <em>Apple Watch Synchronisierung</em> aus.</li>
+                <li>Nun kannst du, indem du dreimal die Seitentaste (oder den Homebutton bei älteren Geräten) drückst, schnell auf diese Funktion zugreifen.</li>
+            </ol>
+            
+            <h2>Fazit</h2>
+            <p>Mit dieser neuen Funktion kannst du den Bildschirm deiner Apple Watch bequem auf deinem iPhone spiegeln und sogar steuern – ideal, wenn du unterwegs bist oder einen besseren Überblick benötigst. Falls noch Fragen offen sind, hinterlasse gerne einen Kommentar. Viel Spaß beim Ausprobieren!</p>
+        </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer></footer>
+</body>
+</html>

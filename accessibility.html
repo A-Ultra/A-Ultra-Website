@@ -242,43 +242,32 @@
             </div>
 
             <div class="card ios">
-                <a href="/accessibility-articles/ios/voiceover-der-komplette-guide.html">
-                    <img src="/assets/images/accessibility/voiceover-video-thumbnail.jpg" alt="VoiceOver auf iOS Video Tutorial" class="card-image">
+                <a href="/accessibility-articles/ios/Haptik-Feedback-auf-der-Tastatur-aktivieren:-Anleitung-für-iOS-16.html">
+                    <img src="https://img.youtube.com/vi/4kzQLg_ryCU/maxresdefault.jpg" alt="Haptik-Feedback auf der Tastatur" class="card-image">
                     <div class="card-content">
-                        <h3>VoiceOver auf iOS: Der komplette Guide</h3>
-                        <p>Ein umfassender Guide zu VoiceOver auf iOS - von der Einrichtung bis zu fortgeschrittenen Funktionen.</p>
+                        <h3>Haptik-Feedback auf der Tastatur aktivieren</h3>
+                        <p>Erfahren Sie, wie Sie das haptische Feedback auf der iOS-Tastatur aktivieren und nutzen können.</p>
                     </div>
                 </a>
             </div>
 
             <div class="card ios">
-                <a href="/accessibility-articles/ios/assistivetouch.html">
-                    <img src="/assets/images/accessibility/assistivetouch.jpg" alt="AssistiveTouch" class="card-image">
+                <a href="/accessibility-articles/ios/Apple-Watch-auf-iPhone-spiegeln-und-steuern:-Anleitung-für-iOS-16-&-watchOS-9.html">
+                    <img src="https://img.youtube.com/vi/_l27cmmZY0g/maxresdefault.jpg" alt="Apple Watch auf iPhone spiegeln" class="card-image">
                     <div class="card-content">
-                        <h3>AssistiveTouch</h3>
-                        <p>Entdecken Sie, wie AssistiveTouch Ihnen hilft, Ihr iOS-Gerät einfacher zu bedienen.</p>
-                    </div>
-                </a>
-            </div>
-
-            <!-- macOS Karten -->
-            <div class="card macos">
-                <a href="/accessibility-articles/macos/voiceover.html">
-                    <img src="/assets/images/accessibility/voiceover-mac.jpg" alt="VoiceOver auf macOS" class="card-image">
-                    <div class="card-content">
-                        <h3>VoiceOver auf macOS</h3>
-                        <p>Eine umfassende Anleitung zur Verwendung von VoiceOver auf Ihrem Mac.</p>
+                        <h3>Apple Watch auf iPhone spiegeln</h3>
+                        <p>Lernen Sie, wie Sie Ihre Apple Watch auf dem iPhone spiegeln und steuern können.</p>
                     </div>
                 </a>
             </div>
 
             <!-- Windows Karten -->
             <div class="card windows">
-                <a href="/accessibility-articles/windows/narrator.html">
-                    <img src="/assets/images/accessibility/windows-narrator.jpg" alt="Windows Narrator" class="card-image">
+                <a href="/accessibility-articles/windows/Maus-Tasten-neu-belegen:-Detaillierte-Anleitung-zur-individuellen-Konfiguration.html">
+                    <img src="https://img.youtube.com/vi/HKEKaOr_oes/maxresdefault.jpg" alt="Maustasten neu belegen in Windows" class="card-image">
                     <div class="card-content">
-                        <h3>Windows Narrator</h3>
-                        <p>Lernen Sie den Windows Narrator kennen und wie er Ihnen bei der PC-Nutzung helfen kann.</p>
+                        <h3>Maustasten neu belegen in Windows</h3>
+                        <p>Eine detaillierte Anleitung zur individuellen Konfiguration Ihrer Maustasten unter Windows.</p>
                     </div>
                 </a>
             </div>
@@ -316,8 +305,12 @@
             const description = card.querySelector('p').textContent.toLowerCase();
             const matchesSearch = title.includes(searchLower) || description.includes(searchLower);
             const matchesCategory = category === 'all' || card.classList.contains(category);
-
-            card.style.display = matchesSearch && matchesCategory ? 'block' : 'none';
+            
+            if (matchesSearch && matchesCategory) {
+                card.style.display = 'block';
+            } else {
+                card.style.display = 'none';
+            }
         });
     }
 
@@ -326,16 +319,28 @@
         const searchText = document.getElementById('searchInput').value;
         const buttons = document.querySelectorAll('.filter-buttons button');
         
-        buttons.forEach(button => {
-            button.classList.remove('active');
-            if (category === 'all' && button.textContent === 'Alle' || 
-                button.textContent.toLowerCase() === category) {
-                button.classList.add('active');
-            }
+        // Entferne die aktive Klasse von allen Buttons
+        buttons.forEach(button => button.classList.remove('active'));
+        
+        // Füge die aktive Klasse zum geklickten Button hinzu
+        const activeButton = Array.from(buttons).find(button => {
+            if (category === 'all') return button.textContent === 'Alle';
+            return button.textContent.toLowerCase() === category;
         });
+        if (activeButton) activeButton.classList.add('active');
 
-        filterContent(searchText, category);
+        // Zeige/verstecke Karten basierend auf Kategorie
+        const cards = document.querySelectorAll('.card');
+        cards.forEach(card => {
+            const matchesCategory = category === 'all' || card.classList.contains(category);
+            const matchesSearch = !searchText || 
+                card.textContent.toLowerCase().includes(searchText.toLowerCase());
+            card.style.display = (matchesCategory && matchesSearch) ? 'block' : 'none';
+        });
     }
+
+    // Initial filter
+    filterCards('all');
     </script>
 </body>
 </html>
