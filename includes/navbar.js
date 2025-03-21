@@ -6,11 +6,14 @@ document.addEventListener('DOMContentLoaded', function() {
             document.querySelector('header').innerHTML = data;
             
             // Markiere den aktiven Menüpunkt
-            const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+            const currentPath = window.location.pathname;
             const navLinks = document.querySelectorAll('.nav-link');
             
             navLinks.forEach(link => {
-                if (link.getAttribute('href') === currentPage) {
+                const href = link.getAttribute('href');
+                // Konvertiere relative zu absoluten Pfaden für den Vergleich
+                const absoluteHref = href.startsWith('/') ? href : '/' + href;
+                if (currentPath.endsWith(href)) {
                     link.parentElement.classList.add('active');
                 }
             });

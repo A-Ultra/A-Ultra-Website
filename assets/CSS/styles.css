@@ -149,31 +149,144 @@ footer p {
 
 /* Podcast Styles */
 h1 {
-    font-size: 60px;
+    font-size: 3rem;
     margin: 0;
-    color: #ffffff !important; /* Weiß mit !important */
+    color: #ffffff !important;
     text-align: center;
 }
 
 h2 {
-    font-size: 40px;
+    font-size: 2rem;
     margin: 0;
-    padding-block: 30px;
-    color: #ffffff !important; /* Weiß mit !important */
+    padding-block: 20px;
+    color: #ffffff !important;
     text-align: center;
 }
 
-/* Neuer Style für Paragraphen auf der Podcast-Seite */
+.container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
 .container p {
-    color: #ffffff !important; /* Weiß mit !important */
+    color: #ffffff !important;
     font-size: 1rem;
     line-height: 1.5;
     margin-bottom: 1rem;
 }
 
-iframe {
-    margin: auto;
-    padding-block: 30px;
+/* Podcast Page Styles */
+.podcast-section {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.podcast-content {
+    width: 100%;
+    margin: 0 auto;
+}
+
+/* Apple Podcast iFrame Styles */
+.podcast-content iframe {
+    width: 100% !important;
+    max-width: 100% !important;
+    margin: 1rem auto;
+    border: none;
+    border-radius: 8px;
+    padding: 0;
+    display: block;
+}
+
+/* Spezifisch für Apple Podcast Player */
+iframe[src*="podcasts.apple.com"] {
+    height: 175px !important;
+    min-height: 175px !important;
+    background: transparent;
+}
+
+/* Spotify Podcast Player */
+iframe[src*="spotify.com"] {
+    height: 232px !important;
+    min-height: 232px !important;
+}
+
+/* YouTube Video Container */
+.col-xl iframe[src*="youtube.com"] {
+    width: 100%;
+    height: 315px;
+    border: none;
+    border-radius: 8px;
+}
+
+/* Podcast Button Container Styles */
+.podcast-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin: 1rem 0;
+    flex-wrap: wrap;
+    padding: 0;
+    width: 100%;
+}
+
+.podcast-buttons .custom-button {
+    white-space: nowrap;
+    min-width: 160px;
+    text-align: center;
+    margin: 0.5rem;
+}
+
+/* Mobile Responsive Anpassungen */
+@media (max-width: 768px) {
+    .podcast-section {
+        padding: 0.5rem;
+    }
+
+    .row {
+        margin: 0;
+    }
+
+    .col-xl {
+        padding: 0.5rem;
+    }
+
+    .col-xl iframe {
+        width: 100% !important;
+        height: auto !important;
+        min-height: 200px !important;
+    }
+
+    .col-xl iframe[src*="youtube.com"] {
+        height: 200px !important;
+    }
+
+    .podcast-buttons {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0.5rem;
+    }
+
+    .podcast-buttons .custom-button {
+        width: 100%;
+        margin: 0.25rem 0;
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+
+    h1.podcast-title {
+        font-size: 2rem;
+        margin: 1rem 0;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        padding-block: 0.75rem;
+    }
 }
 
 /* About Page Styles */
@@ -398,63 +511,6 @@ iframe {
     }
 }
 
-/* Podcast Button Container Styles */
-.podcast-buttons {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 1rem;
-    margin: 1rem 0 2rem 0;
-    flex-wrap: wrap; /* Erlaubt das Umbrechen auf mobilen Geräten */
-    padding: 1rem 0;
-}
-
-.podcast-buttons .custom-button {
-    white-space: nowrap;
-    min-width: 160px;
-    text-align: center;
-    margin-bottom: 0.5rem; /* Abstand zwischen den Zeilen wenn sie umbrechen */
-}
-
-/* Desktop Styles */
-@media (min-width: 992px) {
-    .podcast-buttons {
-        flex-wrap: nowrap; /* Keine Umbrüche auf Desktop */
-        overflow-x: hidden; /* Kein horizontales Scrollen auf Desktop */
-    }
-}
-
-/* Mobile Styles */
-@media (max-width: 991px) {
-    .podcast-buttons {
-        justify-content: center;
-        gap: 0.5rem; /* Kleinerer Abstand auf mobilen Geräten */
-    }
-    
-    .podcast-buttons .custom-button {
-        min-width: 140px; /* Etwas schmaler auf mobilen Geräten */
-    }
-}
-
-/* Podcast Page Styles */
-.podcast-section {
-    padding: 2rem 0;
-}
-
-.podcast-title {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-    text-align: center;
-    color: white !important;
-}
-
-/* Responsive Anpassungen */
-@media (max-width: 768px) {
-    .podcast-title {
-        font-size: 2.5rem;
-    }
-}
-
 /* Escape Room Styles */
 .escape-room-section {
     padding: 2rem 0;
@@ -624,5 +680,89 @@ h1 {
     
     .card-container {
         grid-template-columns: 1fr;
+    }
+}
+
+/* Artikel-Container Styles */
+.article-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+/* Share-Buttons Styles */
+.share-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    padding: 0 10px;
+}
+
+.share-button {
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 16px;
+    background-color: #222;
+    color: #fff;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+    font-size: 0.9em;
+    white-space: nowrap;
+}
+
+.share-button:hover {
+    text-decoration: none;
+    color: #fff;
+}
+
+.share-button.twitter:hover {
+    background-color: #1DA1F2;
+}
+
+.share-button.facebook:hover {
+    background-color: #4267B2;
+}
+
+.share-button.whatsapp:hover {
+    background-color: #25D366;
+}
+
+.share-button.reddit:hover {
+    background-color: #FF4500;
+}
+
+.share-button.copy:hover {
+    background-color: #444;
+}
+
+@media (max-width: 768px) {
+    .article-container {
+        width: 100%;
+        max-width: 100%;
+        padding: 1rem;
+        margin: 0;
+    }
+
+    .article-container img {
+        width: 100%;
+        height: auto;
+    }
+
+    .share-buttons {
+        gap: 8px;
+        padding: 0 5px;
+    }
+
+    .share-button {
+        padding: 8px 12px;
+        font-size: 0.85em;
+        flex: 0 1 auto;
     }
 }
