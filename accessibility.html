@@ -217,10 +217,10 @@
         <div class="controls-wrapper" style="margin-top: 2rem;">
             <div class="filter-buttons">
                 <button onclick="filterCards('all')" class="active">Alle</button>
-                <button onclick="filterCards('ios')">iOS</button>
+                <button onclick="filterCards('ios')">iOS/iPadOS</button>
                 <button onclick="filterCards('macos')">macOS</button>
                 <button onclick="filterCards('windows')">Windows</button>
-                <button onclick="filterCards('other')">Sonstige</button>
+                <button onclick="filterCards('watchos')">watchOS</button>
             </div>
             
             <div class="search-container">
@@ -251,7 +251,7 @@
                 </a>
             </div>
 
-            <div class="card ios">
+            <div class="card watchos ios">
                 <a href="/accessibility-articles/ios/Apple-Watch-auf-iPhone-spiegeln-und-steuern:-Anleitung-für-iOS-16-&-watchOS-9.html">
                     <img src="https://img.youtube.com/vi/_l27cmmZY0g/maxresdefault.jpg" alt="Apple Watch auf iPhone spiegeln" class="card-image">
                     <div class="card-content">
@@ -325,6 +325,7 @@
         // Füge die aktive Klasse zum geklickten Button hinzu
         const activeButton = Array.from(buttons).find(button => {
             if (category === 'all') return button.textContent === 'Alle';
+            if (category === 'ios') return button.textContent === 'iOS/iPadOS';
             return button.textContent.toLowerCase() === category;
         });
         if (activeButton) activeButton.classList.add('active');

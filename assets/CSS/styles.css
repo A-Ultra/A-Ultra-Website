@@ -471,9 +471,14 @@ iframe[src*="spotify.com"] {
 
 .home-title {
     font-size: 3rem;
-    margin-bottom: 1rem; /* Von 2rem auf 1rem reduziert */
+    margin-bottom: 1rem;
     text-align: center;
     color: white !important;
+}
+
+.home-title span {
+    display: inline-block;
+    white-space: nowrap;
 }
 
 .latest-videos-title {
@@ -500,6 +505,8 @@ iframe[src*="spotify.com"] {
 @media (max-width: 768px) {
     .home-title {
         font-size: 2.5rem;
+        white-space: normal;
+        hyphens: none;
     }
 
     .latest-videos-title {
