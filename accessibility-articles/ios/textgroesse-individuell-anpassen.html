@@ -220,20 +220,15 @@
             color: white;
             padding: 10px 20px;
             border-radius: 20px;
-            display: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
             z-index: 1000;
         }
 
         .toast.show {
-            display: block;
-            animation: fadeInOut 2s ease-in-out;
-        }
-
-        @keyframes fadeInOut {
-            0% { opacity: 0; }
-            20% { opacity: 1; }
-            80% { opacity: 1; }
-            100% { opacity: 0; }
+            opacity: 1;
+            visibility: visible;
         }
     </style>
 
@@ -243,13 +238,17 @@
     <!-- JavaScript für Copy-Link Funktionalität -->
     <script>
         function copyLink() {
-            const url = 'https://aultra.252425.xyz/accessibility-articles/ios/textgroesse-individuell-anpassen.html';
+            if (!event || !event.isTrusted) return; // Verhindert automatische Ausführung
+            const url = window.location.href;
             navigator.clipboard.writeText(url).then(() => {
                 const toast = document.getElementById('toast');
+                if (!toast) return;
                 toast.classList.add('show');
                 setTimeout(() => {
                     toast.classList.remove('show');
                 }, 2000);
+            }).catch(() => {
+                // Handle error silently
             });
         }
     </script>

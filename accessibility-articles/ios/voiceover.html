@@ -42,16 +42,43 @@
     <!-- JavaScript für Copy-Link Funktionalität -->
     <script>
         function copyLink() {
+            if (!event || !event.isTrusted) return; // Verhindert automatische Ausführung
             const url = window.location.href;
             navigator.clipboard.writeText(url).then(() => {
                 const toast = document.getElementById('toast');
+                if (!toast) return;
                 toast.classList.add('show');
                 setTimeout(() => {
                     toast.classList.remove('show');
                 }, 2000);
+            }).catch(() => {
+                // Handle error silently
             });
         }
     </script>
+
+    <!-- Toast Nachricht für Copy-Feedback -->
+    <style>
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+            border-radius: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s, visibility 0.3s;
+            z-index: 1000;
+        }
+
+        .toast.show {
+            opacity: 1;
+            visibility: visible;
+        }
+    </style>
 </head>
 <body>
     <!-- Header für die Navbar -->
