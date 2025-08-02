@@ -3,440 +3,85 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7 Jahre Jubiläum</title>
+    <title>Technik einfach erklärt – A-Ultra</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/CSS/styles.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <script src="includes/navbar.js"></script>
+    <script src="includes/footer.js"></script>
     <!-- Standard-Favicon -->
     <link rel="icon" href="assets/images/favicons/favicon.ico" type="image/x-icon">
     <link rel="apple-touch-icon" sizes="180x180" href="assets/images/favicons/apple-touch-icon.png">
     <link rel="icon" sizes="32x32" href="assets/images/favicons/favicon-32x32.png" type="image/png">
     <link rel="icon" sizes="16x16" href="assets/images/favicons/favicon-16x16.png" type="image/png">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/CSS/styles.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
-    <script src="includes/navbar.js"></script>
-    <style>
-body {
-    background-color: #000;
-    color: white;
-    margin: 0;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-        'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-        sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    overflow-x: hidden; /* Prevent horizontal scrolling */
-    overflow-y: auto; /* Allow vertical scrolling */
-}
-
-#particle-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: 0;
-}
-
-.main-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    min-height: 100vh;
-    position: relative;
-    z-index: 1;
-    padding-top: 5vh; /* Add some top padding */
-}
-
-.content {
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-bottom: 5vh;
-}
-
-.fan-container {
-    position: relative;
-    width: 40vmin;
-    height: 40vmin;
-    margin-bottom: 2vmin; /* Adjusted margin */
-    transform-origin: bottom left;
-}
-
-.seven {
-    position: absolute;
-    left: 0;
-    bottom: 20%; /* Moved up */
-    transform: translate(0, 0); /* Reset transform for new origin */
-    font-size: 35vmin;
-    font-weight: bold;
-    background: -webkit-linear-gradient(45deg, #ff0000, #0000ff);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    transform-origin: bottom left;
-    animation: fan-out-repeat 8s cubic-bezier(0.22, 1, 0.36, 1) infinite;
-    opacity: 0;
-}
-
-@keyframes fan-out-repeat {
-    0% {
-        transform: scale(0) rotate(0deg);
-        opacity: 0;
-    }
-    10% {
-        transform: scale(1) rotate(var(--rotation, 0deg));
-        opacity: 1;
-    }
-    80% {
-        transform: scale(1) rotate(var(--rotation, 0deg));
-        opacity: 1;
-    }
-    90% {
-        opacity: 0;
-        transform: scale(0) rotate(0deg);
-    }
-    100% {
-        opacity: 0;
-        transform: scale(0) rotate(0deg);
-    }
-}
-
-.seven:nth-child(1) { --rotation: 0deg;   animation-delay: 0.0s; }
-.seven:nth-child(2) { --rotation: 22.5deg; animation-delay: 0.1s; }
-.seven:nth-child(3) { --rotation: 45deg;  animation-delay: 0.2s; z-index: 10;}
-.seven:nth-child(4) { --rotation: 67.5deg; animation-delay: 0.3s; }
-.seven:nth-child(5) { --rotation: 90deg;  animation-delay: 0.4s; }
-
-p {
-    font-size: clamp(1.2rem, 3vmin, 2rem);
-    margin-top: 1rem; /* Adjusted margin */
-    color: #FFF;
-    animation: fade-in 1s ease-in-out forwards;
-    animation-delay: 1.5s;
-    opacity: 0;
-}
-
-a.youtube-button {
-    background-color: #ff0000;
-    color: white;
-    padding: 15px 30px;
-    text-decoration: none;
-    border-radius: 5px;
-    margin-top: 1rem; /* Adjusted margin */
-    font-weight: bold;
-    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-    border: 2px solid #0000ff;
-    box-shadow: 0 0 0px #0000ff;
-    animation: fade-in 1s ease-in-out forwards;
-    animation-delay: 2s;
-    opacity: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-a.youtube-button svg {
-    width: 24px;
-    height: 24px;
-    margin-right: 10px;
-}
-
-a.youtube-button:hover {
-    background-color: #cc0000;
-    transform: scale(1.05);
-    box-shadow: 0 0 20px #0000ff;
-}
-
-@keyframes fade-in {
-    from { opacity: 0; }
-    to { opacity: 1; }
-}
-
-.highlights-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 5rem auto;
-    text-align: center;
-}
-
-.highlights-container h2 {
-    font-size: clamp(1.5rem, 4vmin, 3rem);
-    margin-bottom: 3rem;
-    color: #fff;
-}
-
-.highlights-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
-}
-
-.highlight-video {
-    background-color: rgba(255, 255, 255, 0.05);
-    border: 2px solid #0000ff;
-    border-radius: 10px;
-    padding: 1rem;
-    width: 100%;
-    text-decoration: none;
-    color: white;
-    transition: transform 0.3s ease, background-color 0.3s ease;
-    opacity: 0;
-    animation: fade-in 1s ease-in-out forwards;
-    animation-delay: 0.5s;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.highlight-video:hover {
-    transform: translateY(-10px);
-    background-color: rgba(255, 0, 0, 0.2);
-}
-
-.highlight-video h3 {
-    margin-top: 0;
-    font-size: clamp(1rem, 2.5vmin, 1.5rem);
-    color: #ff0000;
-    margin-bottom: 0.5rem;
-}
-
-.highlight-video p {
-    font-size: clamp(0.8rem, 2vmin, 1rem);
-    color: #ccc;
-    margin-bottom: 1rem;
-    flex-grow: 1;
-}
-
-.video-responsive {
-    position: relative;
-    padding-bottom: 56.25%; /* 16:9 aspect ratio */
-    height: 0;
-    overflow: hidden;
-    margin-top: auto;
-}
-
-.highlight-video iframe {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    border-radius: 5px;
-}
-
-/* Tablet adjustments */
-@media (max-width: 1024px) {
-    .highlights-grid {
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-        gap: 1.5rem;
-    }
-
-    .highlight-video {
-        padding: 0.8rem;
-    }
-}
-
-/* Mobile adjustments */
-@media (max-width: 768px) {
-    .main-container {
-        padding-top: 2vh;
-    }
-
-    .fan-container {
-        width: 70vmin;
-        height: 70vmin;
-        margin-bottom: 5vmin;
-    }
-
-    .seven {
-        font-size: 60vmin;
-    }
-
-    p {
-        margin-top: 1.5rem;
-    }
-
-    a.youtube-button {
-        padding: 12px 25px;
-        font-size: 1.1rem;
-        margin-top: 1rem;
-    }
-
-    .highlights-container {
-        margin: 3rem auto;
-    }
-
-    .highlights-container h2 {
-        margin-bottom: 2rem;
-    }
-
-    .highlights-grid {
-        grid-template-columns: 1fr;
-        gap: 1rem;
-    }
-
-    .highlight-video {
-        width: 90%;
-        margin: 0 auto;
-    }
-}
-
-/* Smaller mobile adjustments */
-@media (max-width: 480px) {
-    .fan-container {
-        width: 80vmin;
-        height: 80vmin;
-    }
-
-    .seven {
-        font-size: 70vmin;
-    }
-
-    p {
-        font-size: 1.2rem;
-    }
-
-    a.youtube-button {
-        padding: 10px 20px;
-        font-size: 1rem;
-    }
-}
-</style>
+    <!-- Sitemap -->
+    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml">
 </head>
 <body>
-    <header></header>
-    <canvas id="particle-canvas"></canvas>
 
-    <div class="main-container">
-        <div class="content">
-            <div class="fan-container">
-                <div class="seven">7</div>
-                <div class="seven">7</div>
-                <div class="seven">7</div>
-                <div class="seven">7</div>
-                <div class="seven">7</div>
-            </div>
-            <p>7 JAHRE A-ULTRA!</p>
-            <a href="https://www.youtube.com/@aultra_de" target="_blank" class="youtube-button">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><!--!Font Awesome Free 6.5.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.--><path fill="#ffffff" d="M549.655 124.083c-6.281-23.65-24.787-42.18-48.432-48.46C458.878 64 288 64 288 64S117.122 64 74.777 75.623c-23.645 6.279-42.151 24.81-48.432 48.46C16 167.02 16 256 16 256s0 88.98 10.345 124.083c6.281 23.65 24.787 42.18 48.432 48.46C117.122 448 288 448 288 448s170.878 0 213.223-11.623c23.645-6.279 42.151-24.81 48.432-48.46C560 344.98 560 256 560 256s0-88.98-10.345-124.083zM288 368c-61.856 0-112-50.144-112-112s50.144-112 112-112 112 50.144 112 112-50.144 112-112 112zm0-160c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48z"/></svg>
-                ZUM KANAL
-            </a>
+  <!-- Header für die Navbar -->
+  <header></header>
+
+  <div class="container home-section">
+    <h1 class="home-title">Willkommen bei <span>A-Ultra</span></h1>
+    
+    <!-- Hauptvideo -->
+    <div class="row featured-video">
+      <div class="col-12">
+        <div class="videoWrapper">
+          <iframe
+            src="https://www.youtube.com/embed/?listType=playlist&list=UUCqM7BpD0YbEoszaHPgcjXg&rel=0&autoplay=0&modestbranding=1&playlist_loop=0&loop=0"
+            allow="fullscreen"
+            allowfullscreen>
+          </iframe>
         </div>
+      </div>
     </div>
 
-    <div class="highlights-container">
-        <h2>Unsere Reise</h2>
-        <div class="highlights-grid">
-            <div class="highlight-video">
-                <h3>Der Anfang</h3>
-                <p>Das erste Video: shaky Cam, wenig Licht, viel Herz. Der Moment, in dem aus einer Idee A-Ultra wurde. – unser allererstes Video, das den Grundstein für 7 Jahre YouTube legte!</p>
-                <div class="video-responsive">
-                    <iframe src="https://www.youtube.com/embed/eeP6ftPa3lY" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
-            <div class="highlight-video">
-                <h3>Der Rekord</h3>
-                <p>Blutut. Ein Sprachfehler wird zum Meme – und das Video explodiert: 168'130 Aufrufe. A-Ultra-Legendenstatus!</p>
-                <div class="video-responsive">
-                    <iframe src="https://www.youtube.com/embed/jOPZ9llRKuk" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
-            <div class="highlight-video">
-                <h3>Der Schmerz</h3>
-                <p>Beim Dreh eines VoiceOver-Tutorials fiel mir das iPhone aus der Hand. Das Display zersprang – und mein Herz gleich mit., aber auch lehrte. Erinnere dich an den unvergesslichen Display-Riss, der uns alle zittern ließ.</p>
-                <div class="video-responsive">
-                    <iframe src="https://www.youtube.com/embed/nicFI4a_vng" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
-            <div class="highlight-video">
-                <h3>Der virale Hit</h3>
-                <p>30 Sekunden, ein Effekt – und Boom: Ein Short, das den Algorithmus überlistet hat. Viral in Bestzeit.! Unser meistgesehenes YouTube Short, das die Welt im Sturm eroberte.</p>
-                <div class="video-responsive">
-                    <iframe src="https://www.youtube.com/embed/ghs61fjEO28" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
-            <div class="highlight-video">
-                <h3>Schweizerdeutsch</h3>
-                <p>Technik mal anders: Auf Schwiizerdütsch. Für unsere Community – direkt, echt und typisch A-Ultra. haben wir uns versucht! Ein besonderer Moment für unsere Community.</p>
-                <div class="video-responsive">
-                    <iframe src="https://www.youtube.com/embed/Wgo49-KLfXQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            </div>
+    <!-- Videos -->
+    <div class="row video-grid">
+      <div class="col-md-4">
+        <div class="videoWrapper">
+          <iframe
+            src="https://www.youtube.com/embed/?listType=playlist&list=UUCqM7BpD0YbEoszaHPgcjXg&index=2&rel=0&autoplay=0&modestbranding=1&playlist_loop=0&loop=0"
+            allow="fullscreen"
+            allowfullscreen>
+          </iframe>
         </div>
+      </div>
+      <div class="col-md-4">
+        <div class="videoWrapper">
+          <iframe
+            src="https://www.youtube.com/embed/?listType=playlist&list=UUCqM7BpD0YbEoszaHPgcjXg&index=3&rel=0&autoplay=0&modestbranding=1&playlist_loop=0&loop=0"
+            allow="fullscreen"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="videoWrapper">
+          <iframe
+            src="https://www.youtube.com/embed/?listType=playlist&list=UUCqM7BpD0YbEoszaHPgcjXg&index=4&rel=0&autoplay=0&modestbranding=1&playlist_loop=0&loop=0"
+            allow="fullscreen"
+            allowfullscreen>
+          </iframe>
+        </div>
+      </div>
     </div>
 
-    <script>
-const canvas = document.getElementById('particle-canvas');
-const ctx = canvas.getContext('2d');
+    <!-- YouTube Button -->
+    <div class="row">
+      <div class="col-12 text-center">
+        <a href="https://www.youtube.com/c/AUltraDE" class="custom-button">
+          <img src="assets/images/socials/youtube-icon@2x.png" alt="Icon">
+          Mehr Videos auf YouTube
+        </a>
+      </div>
+    </div>
+  </div>
 
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-
-let particles = [];
-
-const particleCount = 100;
-const colors = ['#ff0000', '#0000ff'];
-
-function Particle(x, y, size, color, speed) {
-    this.x = x;
-    this.y = y;
-    this.size = size;
-    this.color = color;
-    this.speed = speed;
-    this.angle = Math.random() * 360;
-}
-
-Particle.prototype.update = function() {
-    this.x += Math.cos(this.angle) * this.speed;
-    this.y += Math.sin(this.angle) * this.speed;
-
-    if (this.x < 0 || this.x > canvas.width || this.y < 0 || this.y > canvas.height) {
-        this.angle += 180;
-    }
-};
-
-Particle.prototype.draw = function() {
-    ctx.fillStyle = this.color;
-    ctx.beginPath();
-    ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
-    ctx.fill();
-};
-
-function createParticles() {
-    for (let i = 0; i < particleCount; i++) {
-        const size = Math.random() * 3 + 1;
-        const x = Math.random() * canvas.width;
-        const y = Math.random() * canvas.height;
-        const color = colors[Math.floor(Math.random() * colors.length)];
-        const speed = Math.random() * 1 + 0.5;
-        particles.push(new Particle(x, y, size, color, speed));
-    }
-}
-
-function animate() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-    for (const particle of particles) {
-        particle.update();
-        particle.draw();
-    }
-
-    requestAnimationFrame(animate);
-}
-
-createParticles();
-animate();
-
-window.addEventListener('resize', () => {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-    particles = [];
-    createParticles();
-});
-
-</script>
+  <!-- Footer -->
+  <footer></footer>
 </body>
 </html>
